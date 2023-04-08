@@ -1,0 +1,88 @@
+body {
+    background-color: rgb(240, 240, 240);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+.mainWrapper {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 500px;
+    height: 700px;
+    background-color: white;
+    border-radius: 16px;
+    text-align: center;
+}
+.todoInput {
+    width: 250px;
+    height: 30px;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+    margin-bottom: 15px;
+    transition: 0.2s ease-out;
+}
+.todoInput:focus {
+    border-bottom: 1px solid rgba(167, 167, 255, 1);
+}
+.btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+    btn:hover {
+    background-color: rgba(167, 167, 255, 1);
+    color: white;
+}
+.todoWrapper {
+    overflow-y: scroll;
+    height: 540px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+    width: 400px;
+    margin: 0 auto;
+}
+.todoWrapper::-webkit-scrollbar {
+    display: none;
+}
+.todoItem {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0 10px;
+}
+.deleteButton {
+    border: 0;
+    background: none;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 3px 5px;
+    transition: 0.4s ease-out;
+    color: rgba(167, 167, 255, 1);
+}
+.deleteButton:hover {
+    background-color: rgb(182, 182, 255);
+    color: white;
+}
+.checkbox {
+    accent-color: rgba(167, 167, 255, 1);
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+.checkbox + label {
+    cursor: pointer;
+    width: 200px;
+    display: flex;
+    text-align: start;
+}
+.checkbox:checked + label {
+    text-decoration: line-through;
+    color: rgb(209, 209, 209);
+}
