@@ -89,7 +89,21 @@ const deleteTodo = (deleteId) => {
     readTodo(); //한번 삭제하고 다시 읽고 다시 처음부터 그려주는 ~ readTodo
 };
 
+const updateComplete = (updateId, Check)  => {
+    const todos = JSON.parse(localStorage.getItem('todos'));
+    const updateTodos = todos.map((todo) => {
+        todo.id === updateId ? (todo.complete = Check) : (todo.complete = todo.complete);
+        return todo;
+    });
+    localStorage.setItem('todos', JSON.stringify(updateTodos));
+    readTodo();
+}
 
+const logout = () => {
+    alert('logout');
+    localStorage.removeItem('login');
+    location.href = './signin.html';
+};
 
 const init = () => {
     isLogin();  //login이 되어있는지 판단
@@ -101,7 +115,7 @@ const init = () => {
         readTodo();
 
         todoButtonEl.addEventListener('click', createTodo);
-  //      logooutButtonEl.addEventListener('click', logout);
+        logooutButtonEl.addEventListener('click', logout);
 };
 
 document.addEventListener('DOMContentLoaded', init);
